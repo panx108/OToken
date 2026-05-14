@@ -98,14 +98,14 @@ export function Stats(_props: StatsProps) {
   const { t } = useTranslation()
 
   const stats: StatItem[] = [
-    { end: 50, suffix: '+', label: t('upstream services integrated') },
-    { end: 100, suffix: '+', label: t('model billing support') },
-    { end: 50, suffix: '+', label: t('compatible API routes') },
-    { end: 10, suffix: '+', label: t('scheduling controls') },
+    { end: 99.9, suffix: '%', label: t('routing availability target'), decimals: 1 },
+    { end: 200, suffix: '+', label: t('model and route profiles') },
+    { end: 12, suffix: 'ms', label: t('policy decision budget') },
+    { end: 24, suffix: '/7', label: t('token telemetry window') },
   ]
 
   return (
-    <div className='border-border/40 bg-muted/10 relative z-10 border-y'>
+    <div className='border-cyan-200/10 bg-cyan-300/[0.03] relative z-10 border-y backdrop-blur-xl'>
       <div className='mx-auto max-w-6xl px-6 py-10 md:py-12'>
         <div className='grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12'>
           {stats.map((s) => (
@@ -113,7 +113,7 @@ export function Stats(_props: StatsProps) {
               key={s.label}
               className='flex flex-col items-center text-center'
             >
-              <span className='text-2xl font-bold tracking-tight md:text-3xl'>
+              <span className='from-primary to-emerald-300 bg-gradient-to-r bg-clip-text text-2xl font-bold tracking-tight text-transparent md:text-3xl'>
                 <Counter end={s.end} suffix={s.suffix} decimals={s.decimals} />
               </span>
               <span className='text-muted-foreground mt-1.5 text-xs'>

@@ -22,7 +22,7 @@ import { cn } from '@/lib/utils'
 export function Logo({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      id='newapi-logo'
+      id='otoken-logo'
       viewBox='0 0 24 24'
       xmlns='http://www.w3.org/2000/svg'
       height='24'
@@ -35,8 +35,10 @@ export function Logo({ className, ...props }: SVGProps<SVGSVGElement>) {
       className={cn('size-6', className)}
       {...props}
     >
-      <title>New API</title>
-      <path d='M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3' />
+      <title>OToken</title>
+      <circle cx='12' cy='12' r='8.2' />
+      <path d='M7.8 12c1.1-2.2 2.5-3.3 4.2-3.3s3.1 1.1 4.2 3.3c-1.1 2.2-2.5 3.3-4.2 3.3S8.9 14.2 7.8 12Z' />
+      <path d='M12 4v3.1M12 16.9V20M4 12h3.1M16.9 12H20' />
     </svg>
   )
 }

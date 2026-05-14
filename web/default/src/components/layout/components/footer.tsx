@@ -40,12 +40,6 @@ interface FooterProps {
   className?: string
 }
 
-const NEW_API_FOOTER_ATTRIBUTION_KEY = [
-  'footer',
-  'new' + 'api',
-  'projectAttributionSuffix',
-].join('.')
-
 function FooterLinkItem(props: { link: FooterLink }) {
   const { t } = useTranslation()
   const isExternal = props.link.href.startsWith('http')
@@ -78,9 +72,9 @@ function ProjectAttribution(props: { currentYear: number }) {
   const { t } = useTranslation()
 
   return (
-    <div className='text-muted-foreground/45 text-center text-xs sm:text-right'>
+    <div className='text-muted-foreground/45 text-center text-[11px] sm:text-right'>
       <span className='text-muted-foreground/45'>
-        &copy; {props.currentYear}{' '}
+        Source compliance:{' '}
         <a
           href='https://github.com/QuantumNous/new-api'
           target='_blank'
@@ -89,7 +83,7 @@ function ProjectAttribution(props: { currentYear: number }) {
         >
           {t('New API')}
         </a>
-        . {t(NEW_API_FOOTER_ATTRIBUTION_KEY)}
+        {' '}AGPL-3.0 / {props.currentYear}
       </span>
     </div>
   )
@@ -105,7 +99,7 @@ export function Footer(props: FooterProps) {
   } = useSystemConfig()
 
   const displayLogo = systemLogo || props.logo || '/logo.png'
-  const displayName = systemName || props.name || 'New API'
+  const displayName = systemName || props.name || 'OToken'
   const isDemoSiteMode = Boolean(demoSiteEnabled)
   const currentYear = new Date().getFullYear()
 
@@ -209,8 +203,8 @@ export function Footer(props: FooterProps) {
                 {displayName}
               </span>
             </Link>
-            <p className='text-muted-foreground/60 mt-3 max-w-[200px] text-xs leading-relaxed'>
-              {t('Powerful API Management Platform')}
+            <p className='text-muted-foreground/60 mt-3 max-w-[220px] text-xs leading-relaxed'>
+              {t('AI token gateway, routing mesh, and quota control plane')}
             </p>
           </div>
 
@@ -239,7 +233,7 @@ export function Footer(props: FooterProps) {
         <div className='border-border/30 mt-12 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row'>
           <p className='text-muted-foreground/40 text-xs'>
             &copy; {currentYear} {displayName}.{' '}
-            {props.copyright ?? t('footer.defaultCopyright')}
+            {props.copyright ?? t('Operational AI gateway')}
           </p>
           <ProjectAttribution currentYear={currentYear} />
         </div>

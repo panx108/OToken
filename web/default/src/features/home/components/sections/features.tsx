@@ -17,14 +17,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import {
-  Zap,
+  Network,
   Shield,
-  Globe,
+  RadioTower,
   Code,
   Gauge,
   DollarSign,
   Users,
-  HeartHandshake,
+  Boxes,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AnimateInView } from '@/components/animate-in-view'
@@ -40,19 +40,19 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'fast',
       num: '01',
-      title: t('Lightning Fast'),
+      title: t('Adaptive Routing Core'),
       desc: t(
-        'Optimized network architecture ensures millisecond response times'
+        'Policy based routing chooses the best upstream by latency, quota, health, and cost'
       ),
       span: 'md:col-span-2',
-      icon: <Zap className='size-4 text-blue-400' />,
+      icon: <Network className='size-4 text-cyan-300' />,
       visual: (
         <div className='mt-4 grid grid-cols-3 gap-2'>
           {['OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'Qwen', 'Llama'].map(
             (name) => (
               <div
                 key={name}
-                className='border-border/30 bg-muted/20 text-muted-foreground flex items-center justify-center rounded-lg border px-3 py-2 text-xs transition-colors duration-300 hover:border-blue-500/30 hover:bg-blue-500/5'
+                className='border-cyan-200/10 bg-cyan-300/5 text-muted-foreground flex items-center justify-center rounded-lg border px-3 py-2 text-xs transition-colors duration-300 hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100'
               >
                 {name}
               </div>
@@ -64,9 +64,9 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'secure',
       num: '02',
-      title: t('Secure & Reliable'),
+      title: t('Token Vault'),
       desc: t(
-        'Enterprise-grade security with comprehensive permission management'
+        'Issue scoped keys, isolate teams, and keep sensitive upstream credentials controlled'
       ),
       span: 'md:col-span-1',
       icon: <Shield className='size-4 text-emerald-400' />,
@@ -79,7 +79,7 @@ export function Features(_props: FeaturesProps) {
                 strokeWidth={1.5}
               />
             </div>
-            <div className='absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-emerald-500'>
+            <div className='absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.75)]'>
               <svg
                 className='size-2.5 text-white'
                 fill='none'
@@ -101,13 +101,13 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'global',
       num: '03',
-      title: t('Global Coverage'),
-      desc: t('Multi-region deployment for stable global access'),
+      title: t('Signal Monitor'),
+      desc: t('Live observability for latency, error spikes, spend, and route health'),
       span: 'md:col-span-1',
-      icon: <Globe className='size-4 text-violet-400' />,
+      icon: <RadioTower className='size-4 text-violet-300' />,
       visual: (
         <div className='mt-4 space-y-2'>
-          {[t('Load Balancing'), t('Rate Limiting'), t('Cost Tracking')].map(
+          {[t('Latency'), t('Quota'), t('Spend')].map(
             (step, i) => (
               <div key={step} className='flex items-center gap-2'>
                 <div
@@ -130,8 +130,8 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'developer',
       num: '04',
-      title: t('Developer Friendly'),
-      desc: t('Compatible API routes for common AI application workflows'),
+      title: t('Protocol Bridge'),
+      desc: t('Expose compatible routes while keeping provider differences behind one control layer'),
       span: 'md:col-span-2',
       icon: <Code className='size-4 text-amber-400' />,
       visual: (
@@ -147,8 +147,8 @@ export function Features(_props: FeaturesProps) {
             ))}
           </div>
           <div className='text-muted-foreground flex items-center gap-1.5 text-xs'>
-            <Code className='size-3.5 text-blue-500' />
-            {t('Multi-protocol Compatible')}
+            <Code className='size-3.5 text-cyan-300' />
+            {t('OpenAI, Claude, Gemini, image, audio, and realtime')}
           </div>
         </div>
       ),
@@ -158,23 +158,23 @@ export function Features(_props: FeaturesProps) {
   const additionalFeatures = [
     {
       icon: <Gauge className='size-5' strokeWidth={1.5} />,
-      title: t('High Performance'),
-      desc: t('Support for high concurrency with automatic load balancing'),
+      title: t('High Throughput'),
+      desc: t('Built for concurrent request flow and resilient upstream failover'),
     },
     {
       icon: <DollarSign className='size-5' strokeWidth={1.5} />,
-      title: t('Transparent Billing'),
-      desc: t('Pay-as-you-go with real-time usage monitoring'),
+      title: t('Cost Intelligence'),
+      desc: t('Track token spend with realtime quota and billing visibility'),
     },
     {
       icon: <Users className='size-5' strokeWidth={1.5} />,
-      title: t('Team Collaboration'),
-      desc: t('Multi-user management with flexible permission allocation'),
+      title: t('Team Control'),
+      desc: t('Segment keys, groups, channels, and user permissions cleanly'),
     },
     {
-      icon: <HeartHandshake className='size-5' strokeWidth={1.5} />,
-      title: t('Open Source'),
-      desc: t('Community driven, self-hosted, and extensible'),
+      icon: <Boxes className='size-5' strokeWidth={1.5} />,
+      title: t('Self-hosted Stack'),
+      desc: t('Deploy your own gateway while preserving full operational control'),
     },
   ]
 
@@ -183,26 +183,26 @@ export function Features(_props: FeaturesProps) {
       <div className='mx-auto max-w-6xl'>
         <AnimateInView className='mb-16 max-w-lg'>
           <p className='text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase'>
-            {t('Core Features')}
+            {t('OToken Control Plane')}
           </p>
           <h2 className='text-2xl leading-tight font-bold tracking-tight md:text-3xl'>
-            {t('Built for developers,')}
+            {t('Token routing,')}
             <br />
-            {t('designed for scale')}
+            {t('designed for operators')}
           </h2>
         </AnimateInView>
 
         {/* Bento grid */}
-        <div className='border-border/40 bg-border/40 grid gap-px overflow-hidden rounded-xl border md:grid-cols-3'>
+        <div className='border-cyan-200/10 bg-cyan-200/10 grid gap-px overflow-hidden rounded-xl border md:grid-cols-3'>
           {features.map((f, i) => (
             <AnimateInView
               key={f.id}
               delay={i * 100}
               animation='scale-in'
-              className={`bg-background group hover:bg-muted/20 p-7 transition-colors duration-300 md:p-8 ${f.span}`}
+              className={`bg-background/80 group hover:bg-cyan-300/[0.04] p-7 backdrop-blur-xl transition-colors duration-300 md:p-8 ${f.span}`}
             >
               <div className='mb-3 flex items-center gap-3'>
-                <span className='border-border/40 bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-md border text-[10px] font-semibold tabular-nums'>
+                <span className='border-cyan-300/20 bg-cyan-300/10 text-cyan-100 flex size-7 items-center justify-center rounded-md border text-[10px] font-semibold tabular-nums'>
                   {f.num}
                 </span>
                 <h3 className='text-sm font-semibold'>{f.title}</h3>
@@ -224,7 +224,7 @@ export function Features(_props: FeaturesProps) {
               animation='fade-up'
               className='flex flex-col items-center text-center'
             >
-              <div className='text-muted-foreground border-border/50 bg-muted/30 group-hover:text-foreground mb-3 flex size-12 items-center justify-center rounded-xl border transition-colors'>
+              <div className='text-primary border-cyan-300/20 bg-cyan-300/10 mb-3 flex size-12 items-center justify-center rounded-xl border transition-colors'>
                 {f.icon}
               </div>
               <h3 className='mb-1.5 text-sm font-semibold'>{f.title}</h3>

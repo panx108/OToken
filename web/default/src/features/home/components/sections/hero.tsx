@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { Link } from '@tanstack/react-router'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Activity, Cpu, Gauge, ShieldCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { HeroTerminalDemo } from '../hero-terminal-demo'
@@ -31,80 +31,108 @@ export function Hero(props: HeroProps) {
   const { t } = useTranslation()
 
   return (
-    <section className='relative z-10 flex flex-col items-center overflow-hidden px-6 pt-28 pb-16 md:pt-36 md:pb-24'>
-      {/* Radial gradient background */}
+    <section className='relative z-10 overflow-hidden px-6 pt-24 pb-16 md:pt-32 md:pb-24'>
       <div
         aria-hidden
-        className='pointer-events-none absolute inset-0 -z-10 opacity-25 dark:opacity-[0.12]'
-        style={{
-          background: [
-            'radial-gradient(ellipse 60% 50% at 20% 20%, oklch(0.72 0.18 250 / 80%) 0%, transparent 70%)',
-            'radial-gradient(ellipse 50% 40% at 80% 15%, oklch(0.65 0.15 200 / 60%) 0%, transparent 70%)',
-            'radial-gradient(ellipse 40% 35% at 40% 80%, oklch(0.70 0.12 280 / 40%) 0%, transparent 70%)',
-          ].join(', '),
-        }}
+        className='absolute inset-0 -z-20 bg-[url("/otoken-hero.png")] bg-cover bg-center opacity-55 dark:opacity-65'
       />
-      {/* Grid pattern */}
       <div
         aria-hidden
-        className='absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,black_20%,transparent_100%)] bg-[size:4rem_4rem] opacity-[0.08]'
+        className='absolute inset-0 -z-10 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklch,var(--background)_78%,transparent)_28%,color-mix(in_oklch,var(--background)_50%,transparent)_58%,var(--background)_100%)]'
+      />
+      <div aria-hidden className='otoken-grid absolute inset-0 -z-10 opacity-40' />
+      <div
+        aria-hidden
+        className='absolute inset-x-0 top-1/3 -z-10 h-px bg-gradient-to-r from-transparent via-cyan-300/45 to-transparent'
       />
 
-      <div className='flex max-w-3xl flex-col items-center text-center'>
-        <h1
-          className='landing-animate-fade-up text-[clamp(2rem,5.5vw,3.5rem)] leading-[1.15] font-bold tracking-tight'
-          style={{ animationDelay: '0ms' }}
-        >
-          {t('Unified API Gateway for')}
-          <br />
-          <span className='bg-gradient-to-r from-blue-400 via-violet-400 to-purple-500 bg-clip-text text-transparent'>
-            {t('All Your AI Models')}
-          </span>
-        </h1>
-        <p
-          className='landing-animate-fade-up text-muted-foreground/80 mt-5 max-w-lg text-base leading-relaxed opacity-0 md:text-lg'
-          style={{ animationDelay: '80ms' }}
-        >
-          {t('Power AI applications, manage digital assets, connect the Future')}
-        </p>
-        <div
-          className='landing-animate-fade-up mt-8 flex items-center gap-3 opacity-0'
-          style={{ animationDelay: '160ms' }}
-        >
-          {props.isAuthenticated ? (
-            <Button
-              className='group rounded-lg'
-              render={<Link to='/dashboard' />}
-            >
-              {t('Go to Dashboard')}
-              <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
-            </Button>
-          ) : (
-            <>
+      <div className='mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(480px,1.05fr)]'>
+        <div className='flex max-w-3xl flex-col items-start'>
+          <div
+            className='landing-animate-fade-up border-primary/25 bg-background/55 text-primary inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium shadow-[0_0_24px_-10px_var(--primary)] backdrop-blur-xl'
+            style={{ animationDelay: '0ms' }}
+          >
+            <span className='bg-primary size-1.5 rounded-full shadow-[0_0_12px_var(--primary)]' />
+            {t('OToken AI Gateway Console')}
+          </div>
+          <h1
+            className='landing-animate-fade-up mt-6 max-w-3xl text-[clamp(2.4rem,6vw,5.6rem)] leading-[0.95] font-black tracking-tight'
+            style={{ animationDelay: '70ms' }}
+          >
+            {t('Route every model through')}
+            <span className='from-primary via-cyan-300 to-emerald-300 block bg-gradient-to-r bg-clip-text text-transparent'>
+              {t('one token network')}
+            </span>
+          </h1>
+          <p
+            className='landing-animate-fade-up text-muted-foreground/90 mt-6 max-w-xl text-base leading-8 opacity-0 md:text-lg'
+            style={{ animationDelay: '140ms' }}
+          >
+            {t(
+              'A high-control AI gateway for model routing, quota governance, realtime billing, and operational telemetry.'
+            )}
+          </p>
+          <div
+            className='landing-animate-fade-up mt-8 flex flex-col gap-3 opacity-0 sm:flex-row'
+            style={{ animationDelay: '210ms' }}
+          >
+            {props.isAuthenticated ? (
               <Button
-                className='group rounded-lg'
-                render={<Link to='/sign-up' />}
+                className='group h-11 rounded-lg bg-cyan-300 px-5 text-slate-950 hover:bg-cyan-200'
+                render={<Link to='/dashboard' />}
               >
-                {t('Get Started')}
+                {t('Enter OToken Console')}
                 <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
               </Button>
-              <Button
-                variant='outline'
-                className='border-border/50 hover:border-border hover:bg-muted/50 rounded-lg'
-                render={<Link to='/pricing' />}
+            ) : (
+              <>
+                <Button
+                  className='group h-11 rounded-lg bg-cyan-300 px-5 text-slate-950 shadow-[0_0_32px_-10px_rgba(103,232,249,0.85)] hover:bg-cyan-200'
+                  render={<Link to='/sign-up' />}
+                >
+                  {t('Launch OToken')}
+                  <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
+                </Button>
+                <Button
+                  variant='outline'
+                  className='border-cyan-300/25 bg-background/30 h-11 rounded-lg px-5 backdrop-blur-xl hover:border-cyan-200/45 hover:bg-cyan-300/10'
+                  render={<Link to='/pricing' />}
+                >
+                  {t('View Token Plans')}
+                </Button>
+              </>
+            )}
+          </div>
+          <div
+            className='landing-animate-fade-up mt-8 grid w-full max-w-xl grid-cols-2 gap-3 opacity-0 sm:grid-cols-4'
+            style={{ animationDelay: '280ms' }}
+          >
+            {[
+              { icon: Activity, label: t('Live Routing') },
+              { icon: Cpu, label: t('Model Mesh') },
+              { icon: Gauge, label: t('Cost Pulse') },
+              { icon: ShieldCheck, label: t('Key Shield') },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className='border-border/40 bg-background/35 flex items-center gap-2 rounded-lg border px-3 py-2 text-xs backdrop-blur-xl'
               >
-                {t('View Pricing')}
-              </Button>
-            </>
-          )}
+                <item.icon className='text-primary size-3.5' />
+                <span className='truncate'>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div
-        className='landing-animate-fade-up w-full opacity-0'
-        style={{ animationDelay: '300ms' }}
-      >
-        <HeroTerminalDemo />
+        <div
+          className='landing-animate-fade-up relative w-full opacity-0'
+          style={{ animationDelay: '340ms' }}
+        >
+          <div className='otoken-glow-card relative overflow-hidden rounded-2xl border border-cyan-200/10 bg-slate-950/70 p-2 backdrop-blur-2xl'>
+            <div aria-hidden className='otoken-scanline absolute inset-y-0 left-0 w-1/2' />
+            <HeroTerminalDemo />
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -202,12 +202,12 @@ export function HeroTerminalDemo() {
   const accent = ACCENT_CLASSES[demo.accent]
 
   return (
-    <div className='mx-auto mt-16 w-full max-w-2xl'>
+    <div className='mx-auto w-full max-w-2xl'>
       <div
         className={cn(
-          'overflow-hidden rounded-2xl border backdrop-blur-sm',
-          'border-border/60 bg-white/95 shadow-[0_20px_50px_-25px_rgba(15,23,42,0.18)]',
-          'dark:border-white/[0.06] dark:bg-[#0b0f17]/95 dark:shadow-[0_20px_60px_-25px_rgba(0,0,0,0.7)]'
+          'overflow-hidden rounded-xl border backdrop-blur-sm',
+          'border-cyan-200/10 bg-white/95 shadow-[0_20px_50px_-25px_rgba(15,23,42,0.18)]',
+          'dark:border-cyan-200/10 dark:bg-[#06111d]/90 dark:shadow-[0_20px_70px_-30px_rgba(45,212,191,0.45)]'
         )}
       >
         {/* Tab strip */}
@@ -238,7 +238,7 @@ export function HeroTerminalDemo() {
           <div className='ml-auto flex items-center gap-2 pr-2 sm:pr-3'>
             <span className='inline-block size-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.45)]' />
             <span className='text-foreground/40 font-mono text-[10px] tracking-wider uppercase'>
-              200 ok
+              OToken mesh
             </span>
           </div>
         </div>
@@ -296,7 +296,7 @@ export function HeroTerminalDemo() {
             </span>
             <span className='bg-foreground/15 size-1 rounded-full' />
             <span className='flex items-center gap-1'>
-              <span className='tracking-wider uppercase'>cost</span>
+              <span className='tracking-wider uppercase'>quota</span>
               <span className='font-mono'>
                 ${(demo.tokens * 0.00003).toFixed(5)}
               </span>

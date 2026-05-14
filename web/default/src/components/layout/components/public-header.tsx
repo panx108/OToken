@@ -111,7 +111,7 @@ export function PublicHeader(props: PublicHeaderProps) {
             className={cn(
               'flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]',
               scrolled
-                ? 'bg-background/60 ring-border/50 h-12 rounded-2xl pr-1.5 pl-4 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.08),0_0_0_0.5px_rgba(0,0,0,0.02)] ring-[0.5px] backdrop-blur-2xl dark:shadow-[0_2px_16px_-6px_rgba(0,0,0,0.4)]'
+                ? 'bg-background/70 ring-cyan-200/15 h-12 rounded-2xl pr-1.5 pl-4 shadow-[0_12px_42px_-24px_rgba(45,212,191,0.55)] ring-[0.5px] backdrop-blur-2xl'
                 : 'h-16 px-2'
             )}
           >
@@ -197,7 +197,7 @@ export function PublicHeader(props: PublicHeaderProps) {
                   ) : (
                     <Button
                       size='sm'
-                      className='h-8 rounded-lg px-3.5 text-xs font-medium'
+                      className='h-8 rounded-lg bg-cyan-300 px-3.5 text-xs font-medium text-slate-950 hover:bg-cyan-200'
                       render={<Link to='/sign-in' />}
                     >
                       {t('Sign in')}

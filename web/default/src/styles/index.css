@@ -45,6 +45,10 @@ For commercial licensing, please contact support@quantumnous.com
   }
   body {
     @apply bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar min-h-svh w-full font-sans;
+    background-image:
+      radial-gradient(circle at 15% 10%, oklch(0.72 0.16 185 / 12%), transparent 34rem),
+      radial-gradient(circle at 86% 14%, oklch(0.66 0.18 255 / 10%), transparent 30rem),
+      linear-gradient(180deg, transparent, oklch(0.1 0.035 240 / 18%));
   }
 
   /* Keep sticky headers stable while primitives lock body scrolling. */
@@ -65,6 +69,48 @@ For commercial licensing, please contact support@quantumnous.com
     textarea {
       font-size: 16px !important;
     }
+  }
+}
+
+.otoken-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.78 0.15 190 / 13%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.78 0.15 190 / 10%) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black 0%, black 54%, transparent 100%);
+}
+
+.otoken-scanline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.82 0.16 185 / 18%),
+    transparent
+  );
+  animation: otoken-scan 5.5s ease-in-out infinite;
+}
+
+.otoken-glow-card {
+  box-shadow:
+    0 0 0 1px oklch(0.78 0.16 185 / 16%),
+    0 24px 80px -40px oklch(0.72 0.18 190 / 56%),
+    inset 0 1px 0 oklch(1 0 0 / 10%);
+}
+
+@keyframes otoken-scan {
+  0% {
+    transform: translateX(-115%);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(115%);
+    opacity: 0;
   }
 }
 

@@ -36,42 +36,31 @@ export function CTA(props: CTAProps) {
 
   return (
     <section className='relative z-10 overflow-hidden px-6 py-24 md:py-32'>
-      {/* Gradient mesh background */}
-      <div
-        aria-hidden
-        className='absolute inset-0 -z-10 opacity-20 dark:opacity-[0.08]'
-        style={{
-          background: [
-            'radial-gradient(ellipse 50% 50% at 30% 50%, oklch(0.7 0.15 250 / 70%) 0%, transparent 70%)',
-            'radial-gradient(ellipse 40% 40% at 70% 40%, oklch(0.65 0.12 200 / 50%) 0%, transparent 70%)',
-          ].join(', '),
-        }}
-      />
-
+      <div aria-hidden className='otoken-grid absolute inset-0 -z-10 opacity-25' />
       <AnimateInView
-        className='mx-auto max-w-2xl text-center'
+        className='otoken-glow-card bg-background/65 mx-auto max-w-2xl rounded-2xl border border-cyan-200/10 px-8 py-12 text-center backdrop-blur-2xl'
         animation='scale-in'
       >
         <h2 className='text-2xl leading-tight font-bold tracking-tight md:text-4xl'>
-          {t('Ready to simplify')}
+          {t('Ready to run')}
           <br />
-          <span className='bg-gradient-to-r from-blue-400 via-violet-400 to-purple-500 bg-clip-text text-transparent'>
-            {t('your AI integration?')}
+          <span className='from-primary via-cyan-200 to-emerald-300 bg-gradient-to-r bg-clip-text text-transparent'>
+            {t('your OToken network?')}
           </span>
         </h2>
         <p className='text-muted-foreground/80 mx-auto mt-5 max-w-md text-sm leading-relaxed md:text-base'>
           {t(
-            'Deploy your own gateway and start routing requests through your configured upstream services.'
+            'Deploy your gateway, issue scoped tokens, and start routing usage through a controlled model mesh.'
           )}
         </p>
         <div className='mt-8 flex items-center justify-center gap-3'>
-          <Button className='group rounded-lg' render={<Link to='/sign-up' />}>
-            {t('Get Started')}
+          <Button className='group rounded-lg bg-cyan-300 text-slate-950 hover:bg-cyan-200' render={<Link to='/sign-up' />}>
+            {t('Create Token Console')}
             <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
           </Button>
           <Button
             variant='outline'
-            className='border-border/50 hover:border-border hover:bg-muted/50 rounded-lg'
+            className='border-cyan-300/25 hover:border-cyan-300/45 hover:bg-cyan-300/10 rounded-lg'
             render={<Link to='/pricing' />}
           >
             {t('View Pricing')}
