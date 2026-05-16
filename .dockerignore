@@ -7,8 +7,10 @@ Makefile
 docs
 .eslintcache
 .gocache
+.corepack
 /web/node_modules
 /web/default/node_modules
+/web/default/.pnpm-store
 /web/default/dist
 /web/classic/node_modules
 /web/classic/dist

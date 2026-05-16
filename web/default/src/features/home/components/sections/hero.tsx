@@ -34,7 +34,8 @@ export function Hero(props: HeroProps) {
     <section className='relative z-10 overflow-hidden px-6 pt-24 pb-16 md:pt-32 md:pb-24'>
       <div
         aria-hidden
-        className='absolute inset-0 -z-20 bg-[url("/otoken-hero.png")] bg-cover bg-center opacity-55 dark:opacity-65'
+        className='absolute inset-0 -z-20 bg-cover bg-center opacity-55 dark:opacity-65'
+        style={{ backgroundImage: "url('/otoken-hero.png')" }}
       />
       <div
         aria-hidden
